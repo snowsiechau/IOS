@@ -9,16 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "XYZPerson.h"
 #import "XYZShoutingPerson.h"
+#import "XYZPerson+XYZPersonNameDisplayAdditions.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         
-        XYZPerson * __weak weakPerson = [[XYZPerson alloc] initWithFirstName:@"Chau" lastName:@"Nguyen"];
+        XYZPerson  __weak *weakPerson = [[XYZPerson alloc] initWithFirstName:@"Chau" lastName:@"Nguyen"];
         [weakPerson sayHello];
         
         XYZPerson *person = [[XYZPerson alloc] initWithFirstName:@"John" lastName:@"Cena"];
         [person sayHello];
+        NSLog(@"%@", [person lastNameFirstNameString]);
+        
+        [person measureHeight:10];
+        [person measureWeight:12];
+        NSLog(@"%i %i", person.height, person.weight);
         
         XYZShoutingPerson *shoutingPerson1 = [[XYZShoutingPerson alloc] init];
         [shoutingPerson1 sayHello];
@@ -30,7 +36,6 @@ int main(int argc, const char * argv[]) {
         if (somePerson == nil) {
             NSLog(@"nil");
         }
-        
         
     }
     return 0;

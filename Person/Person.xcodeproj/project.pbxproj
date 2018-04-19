@@ -10,6 +10,7 @@
 		04000586208831E900EC4A8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04000585208831E900EC4A8E /* main.m */; };
 		04000591208832BA00EC4A8E /* XYZPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 04000590208832BA00EC4A8E /* XYZPerson.m */; };
 		040005942088365F00EC4A8E /* XYZShoutingPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 040005932088365F00EC4A8E /* XYZShoutingPerson.m */; };
+		0400059A20887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400059920887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,8 @@
 		04000590208832BA00EC4A8E /* XYZPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZPerson.m; sourceTree = "<group>"; };
 		040005922088365F00EC4A8E /* XYZShoutingPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZShoutingPerson.h; sourceTree = "<group>"; };
 		040005932088365F00EC4A8E /* XYZShoutingPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYZShoutingPerson.m; sourceTree = "<group>"; };
+		0400059820887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XYZPerson+XYZPersonNameDisplayAdditions.h"; sourceTree = "<group>"; };
+		0400059920887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XYZPerson+XYZPersonNameDisplayAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +50,8 @@
 		04000579208831E900EC4A8E = {
 			isa = PBXGroup;
 			children = (
+				0400059820887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.h */,
+				0400059920887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.m */,
 				04000584208831E900EC4A8E /* Person */,
 				04000583208831E900EC4A8E /* Products */,
 			);
@@ -129,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04000591208832BA00EC4A8E /* XYZPerson.m in Sources */,
+				0400059A20887C3700EC4A8E /* XYZPerson+XYZPersonNameDisplayAdditions.m in Sources */,
 				040005942088365F00EC4A8E /* XYZShoutingPerson.m in Sources */,
 				04000586208831E900EC4A8E /* main.m in Sources */,
 			);

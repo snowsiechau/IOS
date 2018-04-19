@@ -8,12 +8,20 @@
 
 #import "XYZPerson.h"
 
+@interface XYZPerson()
+@property (readwrite) int height;
+@property (readwrite) int weight;
+
+@end
+
 @implementation XYZPerson
+
 {
     NSMutableString *appendFirstName;
 }
 
-@synthesize firstName, lastName;
+
+@synthesize firstName, lastName, weight, height;
 
 - (void)sayHello
 {
@@ -52,6 +60,16 @@
 - (void)dealloc
 {
     NSLog(@"Dealloc");
+}
+
+- (void)measureHeight:(int)h
+{
+    height = h;
+}
+
+- (void)measureWeight:(int)w
+{
+    weight = w;
 }
 
 @end
