@@ -14,7 +14,10 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         
-        XYZPerson *person = [[XYZPerson alloc] init];
+        XYZPerson * __weak weakPerson = [[XYZPerson alloc] initWithFirstName:@"Chau" lastName:@"Nguyen"];
+        [weakPerson sayHello];
+        
+        XYZPerson *person = [[XYZPerson alloc] initWithFirstName:@"John" lastName:@"Cena"];
         [person sayHello];
         
         XYZShoutingPerson *shoutingPerson1 = [[XYZShoutingPerson alloc] init];
@@ -27,6 +30,7 @@ int main(int argc, const char * argv[]) {
         if (somePerson == nil) {
             NSLog(@"nil");
         }
+        
         
     }
     return 0;

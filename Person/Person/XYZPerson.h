@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface XYZPerson : NSObject
-@property  NSString *firstName;
+@property  (copy) NSString *firstName;
 @property  NSString *lastName;
+@property (readonly) NSString *fullName;
 @property  NSDate *dateOfBirth;
 
 -(void) sayHello;
 -(void) saySomething: (NSString *) greeting;
+-(id) initWithFirstName: (NSString *) aFirstName lastName: (NSString *) aLastName;
 +(id) person;
 @end
