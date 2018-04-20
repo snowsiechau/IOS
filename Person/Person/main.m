@@ -15,7 +15,12 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
         
-        XYZPerson  __weak *weakPerson = [[XYZPerson alloc] initWithFirstName:@"Chau" lastName:@"Nguyen"];
+        XYZPerson *strongPerson = [[XYZPerson alloc] initWithFirstName:@"Chau" lastName:@"Nguyen"];
+        XYZPerson  __weak *weakPerson = strongPerson;
+        strongPerson = [[XYZPerson alloc] initWithFirstName:@"AAA" lastName:@"BBB"];
+        if (weakPerson == nil) {
+            NSLog(@"nil");
+        }
         [weakPerson sayHello];
         
         XYZPerson *person = [[XYZPerson alloc] initWithFirstName:@"John" lastName:@"Cena"];

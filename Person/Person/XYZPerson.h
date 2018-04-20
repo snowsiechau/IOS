@@ -17,6 +17,10 @@
 @property (readonly) int height;
 @property (readonly) int weight;
 
+@property id delegate;
+@property (weak) id delegateWeak;
+
+
 -(void) sayHello;
 -(void) saySomething: (NSString *) greeting;
 -(id) initWithFirstName: (NSString *) aFirstName lastName: (NSString *) aLastName;
