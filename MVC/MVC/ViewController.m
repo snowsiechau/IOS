@@ -45,22 +45,23 @@
     
     
     UIAlertAction* yesButton = [UIAlertAction
-                                actionWithTitle:@"Yes, please"
+                                actionWithTitle:@"OK"
                                 style:UIAlertActionStyleDefault
                                 handler:^(UIAlertAction * action) {
                                     //Handle your yes please button action here
                                 }];
-    
-    UIAlertAction* noButton = [UIAlertAction
-                               actionWithTitle:@"No, thanks"
-                               style:UIAlertActionStyleDefault
-                               handler:^(UIAlertAction * action) {
-                                   //Handle no, thanks button
-                               }];
-    
+//
+//    UIAlertAction* noButton = [UIAlertAction
+//                               actionWithTitle:@"No, thanks"
+//                               style:UIAlertActionStyleDefault
+//                               handler:^(UIAlertAction * action) {
+//                                   //Handle no, thanks button
+//                               }];
+//
     [alert addAction:yesButton];
-    [alert addAction:noButton];
-    
+//    [alert addAction:noButton];
+//
     [self presentViewController:alert animated:YES completion:nil];
 }
+
 @end
