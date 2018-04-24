@@ -43,11 +43,20 @@
                                     <action selector="btShowName:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ASd-Zq-tz2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUh-rp-aZb">
+                                <rect key="frame" x="102" y="209" width="171" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66799789669999998" green="0.47512125970000002" blue="0.25860109930000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.8484356852295083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="lbHide" destination="dUh-rp-aZb" id="XVh-ou-bXl"/>
                         <outlet property="tfFirstName" destination="Uen-a7-iIY" id="9bw-g7-ORj"/>
                         <outlet property="tfLastName" destination="eyR-kx-YWE" id="Ct3-FH-AuB"/>
                     </connections>

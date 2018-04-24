@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *tfFirstName;
 @property (weak, nonatomic) IBOutlet UITextField *tfLastName;
 - (IBAction)btShowName:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *lbHide;
 
 @end
 

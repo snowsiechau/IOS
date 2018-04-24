@@ -15,11 +15,12 @@
 
 @implementation ViewController
 
-@synthesize tfFirstName, tfLastName;
+@synthesize tfFirstName, tfLastName, lbHide;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [lbHide setHidden:YES];
 }
 
 
@@ -30,6 +31,8 @@
 
 
 - (IBAction)btShowName:(id)sender {
+    
+    [lbHide setHidden:NO];
     
     Person *person = [[Person alloc] init];
     person.firstName = tfFirstName.text;
