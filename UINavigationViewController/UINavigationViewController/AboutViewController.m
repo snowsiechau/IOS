@@ -28,7 +28,7 @@
     [self.view addSubview:webview];
     
     myProgressView = [[UIProgressView alloc] init];
-    myProgressView.frame = CGRectMake(100,100,100,20);
+    myProgressView.frame = CGRectMake(self.view.bounds.size.width/2-50,self.view.bounds.size.height/2-10,100,20);
     [self.view addSubview:myProgressView];
     
     webview.delegate = self;
