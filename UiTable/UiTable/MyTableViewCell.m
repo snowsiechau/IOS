@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _lbName.numberOfLines = 2;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

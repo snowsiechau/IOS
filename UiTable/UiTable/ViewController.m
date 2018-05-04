@@ -44,7 +44,6 @@
                                               NSLog(@"The response is - %@",responseDictionary);
                                               NSLog(@"-------------------------------");
                                               
-                                              
                                               for (NSDictionary *project in responseDictionary[@"products"]) {
                                                   [self.arrayProducts addObject:project[@"name"]];
                                                   [self.arrayPrice addObject:project[@"price"]];
@@ -65,6 +64,8 @@
                                                       });
                                       }];
     [dataTask resume];
+    
+    self.table.alpha = 1;
 }
 
 
@@ -87,12 +88,6 @@
     MyTableViewCell *myCell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     myCell.lbName.text = self.arrayProducts[indexPath.row];
     myCell.lbPrice.text = [NSString stringWithFormat:@"$ %@", self.arrayPrice[indexPath.row]];
-    
-    
-//    NSURL *url = [NSURL URLWithString:self.arrayImage[indexPath.row]];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    UIImage *image = [UIImage imageWithData:data];
-//    myCell.imImage.image = image;
 
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         NSData * data = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.arrayImage[indexPath.row]]];
