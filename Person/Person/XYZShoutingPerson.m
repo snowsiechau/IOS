@@ -14,5 +14,6 @@
 {
     NSString *upperCaseGreeting = [greeting uppercaseString];
     [super saySomething:upperCaseGreeting];
+    super.firstName = @"";
 }
 @end

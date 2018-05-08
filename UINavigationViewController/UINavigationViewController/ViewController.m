@@ -9,7 +9,9 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+{
+    NSInteger *we;
+}
 @end
 
 @implementation ViewController

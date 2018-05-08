@@ -154,6 +154,8 @@
     return 250;
 }
 
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [arrayProducts count];
 }

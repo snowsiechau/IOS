@@ -11,7 +11,7 @@
 @interface XYZPerson()
 @property (readwrite) int height;
 @property (readwrite) int weight;
-
+@property (readwrite) int add;
 @end
 
 @implementation XYZPerson
