@@ -33,6 +33,9 @@
     self.navigationController.view.backgroundColor = [UIColor whiteColor];
     UIBarButtonItem *marketBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"market"] style:UIBarButtonItemStylePlain target:self action:@selector(pressedMarketBarButtonItem:)];
     UIBarButtonItem *commentBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"comment"] style:UIBarButtonItemStylePlain target:self action:@selector(pressedCommentBarButtonItem:)];
+    
+    commentBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 15, 0, 0);
+    
     [marketBarButtonItem setTintColor:[UIColor blackColor]];
     [commentBarButtonItem setTintColor:[UIColor blackColor]];
     self.navigationItem.rightBarButtonItems = @[marketBarButtonItem, commentBarButtonItem];
@@ -134,14 +137,51 @@
     [GIDSignIn sharedInstance].uiDelegate = self;
     [GIDSignIn sharedInstance].delegate = self;
     [[GIDSignIn sharedInstance] signOut];
-    
     GIDSignInButton *signInGoogleButton = [[GIDSignInButton alloc] initWithFrame:CGRectMake(x/10, (y/2 - y/25 + 2.7*y/13), 30, 30)];
     [signInGoogleButton setStyle:kGIDSignInButtonStyleIconOnly];
     [self.view addSubview:signInGoogleButton];
     
-    FBSDKLoginButton *signInFaceBookButton = [[FBSDKLoginButton alloc] initWithFrame:CGRectMake(x/10 + x/5, (y/2 - y/25 + 2.7*y/13) + 5, 40, 40)];
-    signInFaceBookButton.delegate = self;
+    
+    UIButton *signInFaceBookButton = [[UIButton alloc] initWithFrame:CGRectMake(x/10 + x/5, (y/2 - y/25 + 2.7*y/13) , 52, 52)];
+    [signInFaceBookButton setImage:[UIImage imageNamed:@"facebook"] forState:UIControlStateNormal];
+    [signInFaceBookButton addTarget:self action:@selector(pressSignInFacebookButton) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:signInFaceBookButton];
+    
+    UIButton *signInTwitterButton = [[UIButton alloc] initWithFrame:CGRectMake(x/10 + 2*x/5, (y/2 - y/25 + 2.7*y/13) , 52, 52)];
+    [signInTwitterButton setImage:[UIImage imageNamed:@"twitter"] forState:UIControlStateNormal];
+    [signInTwitterButton addTarget:self action:@selector(pressSignInTwitterButton) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:signInTwitterButton];
+
+}
+
+- (void) pressSignInTwitterButton {
+    [[Twitter sharedInstance] logInWithCompletion:^
+     (TWTRSession *session, NSError *error) {
+         if (session) {
+             WomenViewController *womenViewController = [[WomenViewController alloc] init];
+             [self.navigationController pushViewController:womenViewController animated:YES];
+         } else {
+             NSLog(@"error: %@", [error localizedDescription]);
+         }
+     }];
+}
+
+
+- (void) pressSignInFacebookButton {
+    FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
+    [login
+     logInWithReadPermissions: @[@"public_profile"]
+     fromViewController:self
+     handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+         if (error) {
+             NSLog(@"Process error");
+         } else if (result.isCancelled) {
+             NSLog(@"Cancelled");
+         } else {
+             WomenViewController *womenViewController = [[WomenViewController alloc] init];
+             [self.navigationController pushViewController:womenViewController animated:YES];
+         }
+     }];
 }
 
 
@@ -154,16 +194,22 @@
     }
 }
 
-- (void)loginButton:(FBSDKLoginButton *)loginButton
-didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
-              error:(NSError *)error {
-    if (error != nil || result.isCancelled) {
-        NSLog(@"%@ -------------------------------------", error.localizedDescription);
-    } else {
-        WomenViewController *womenViewController = [[WomenViewController alloc] init];
-        [self.navigationController pushViewController:womenViewController animated:YES];
-    }
+
+//- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+//    if (error != nil || result.isCancelled) {
+//    } else {
+//        WomenViewController *womenViewController = [[WomenViewController alloc] init];
+//        [self.navigationController pushViewController:womenViewController animated:YES];
+//    }
+//}
+
+
+
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    
 }
+
 
 - (void) pressedMarketBarButtonItem:(UIBarButtonItem *)button{
     

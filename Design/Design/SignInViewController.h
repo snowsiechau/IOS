@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <TwitterKit/TWTRKit.h>
+
 @import Firebase;
 @import GoogleSignIn;
 @import FirebaseFacebookAuthUI;

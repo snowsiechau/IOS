@@ -25,6 +25,7 @@
 			<array>
 				<string>com.googleusercontent.apps.514651473993-n4bi4cfvvbo0ncoc5pjb1o27icoq2kbe</string>
                  <string>fb217011692228721</string>
+                  <string>twitterkit-2Ff3APtSnsT5CkTbbaWm1T028</string>
 			</array>
 		</dict>
 	</array>
@@ -52,6 +53,11 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>twitter</string>
+        <string>twitterauth</string>
+    </array>
     
     <key>FacebookAppID</key>
     <string>217011692228721</string>

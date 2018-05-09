@@ -31,6 +31,7 @@
     [marketBarButtonItem setTintColor:[UIColor blackColor]];
     [commentBarButtonItem setTintColor:[UIColor blackColor]];
     self.navigationItem.rightBarButtonItems = @[marketBarButtonItem, commentBarButtonItem];
+    commentBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     
     self.navigationItem.hidesBackButton = YES;
     UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(pressedMenuBarButtonItem:)];
@@ -38,6 +39,7 @@
     self.navigationItem.leftBarButtonItem = menuBarButtonItem;
      UIBarButtonItem *backBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(pressedBackBarButtonItem:)];
     [backBarButtonItem setTintColor:[UIColor blackColor]];
+    menuBarButtonItem.imageInsets = UIEdgeInsetsMake(0, 0, 0, 15);
     
     self.navigationItem.leftBarButtonItems = @[backBarButtonItem, menuBarButtonItem];
     

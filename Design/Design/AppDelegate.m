@@ -34,6 +34,8 @@
     
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
+    
+    [[Twitter sharedInstance] startWithConsumerKey:@"2Ff3APtSnsT5CkTbbaWm1T028" consumerSecret:@"CrMngC1Fp01VyTT2h4GzwQ3Nya4XeQV68e1iEEKB1WoU5xNd07"];
 
     return YES;
 }
@@ -48,7 +50,9 @@
                     ];
     
     return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] || handled;
+        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] || handled ||
+    [[Twitter sharedInstance] application:application openURL:url options:options];
+    ;
     
 }
 

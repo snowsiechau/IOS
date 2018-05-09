@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @import Firebase;
 @import GoogleSignIn;
+#import <TwitterKit/TWTRKit.h>
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
