@@ -48,10 +48,9 @@
                     ];
     
     return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] || handled;
+        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] || handled;
     
 }
-
 
 
 
