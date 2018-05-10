@@ -46,14 +46,12 @@
     BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
                                                                   openURL:url
             sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-            annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-                    ];
+            annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
     
     return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]] || handled ||
-    [[Twitter sharedInstance] application:application openURL:url options:options];
-    ;
-    
+        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]
+                    || handled
+                    || [[Twitter sharedInstance] application:application openURL:url options:options];
 }
 
 

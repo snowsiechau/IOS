@@ -154,12 +154,27 @@
 
 }
 
-- (void) pressSignInTwitterButton {
+- (void)pressSignInTwitterButton {
     [[Twitter sharedInstance] logInWithCompletion:^
      (TWTRSession *session, NSError *error) {
          if (session) {
-             WomenViewController *womenViewController = [[WomenViewController alloc] init];
-             [self.navigationController pushViewController:womenViewController animated:YES];
+             
+             FIRAuthCredential *credential =
+             [FIRTwitterAuthProvider credentialWithToken:session.authToken
+                                                  secret:session.authTokenSecret];
+             [[FIRAuth auth] signInAndRetrieveDataWithCredential:credential
+                                                      completion:^(FIRAuthDataResult * _Nullable authResult,
+                                                                   NSError * _Nullable error) {
+                                                          if (error) {
+                                                              // ...
+                                                              return;
+                                                          }
+                                                          // User successfully signed in. Get user data from the FIRUser object
+                                                          // ...
+                                                          WomenViewController *womenViewController = [[WomenViewController alloc] init];
+                                                          [self.navigationController pushViewController:womenViewController animated:YES];
+                                                      }];
+             
          } else {
              NSLog(@"error: %@", [error localizedDescription]);
          }
@@ -167,7 +182,7 @@
 }
 
 
-- (void) pressSignInFacebookButton {
+- (void)pressSignInFacebookButton {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
     [login
      logInWithReadPermissions: @[@"public_profile"]
@@ -178,19 +193,46 @@
          } else if (result.isCancelled) {
              NSLog(@"Cancelled");
          } else {
-             WomenViewController *womenViewController = [[WomenViewController alloc] init];
-             [self.navigationController pushViewController:womenViewController animated:YES];
+             
+             FIRAuthCredential *credential = [FIRFacebookAuthProvider
+                                              credentialWithAccessToken:[FBSDKAccessToken currentAccessToken].tokenString];
+             [[FIRAuth auth] signInAndRetrieveDataWithCredential:credential
+                                                      completion:^(FIRAuthDataResult * _Nullable authResult,
+                                                                   NSError * _Nullable error) {
+                                                          if (error) {
+                                                              // ...
+                                                              return;
+                                                          }
+                                                          // User successfully signed in. Get user data from the FIRUser object
+                                                          // ...
+                                                          WomenViewController *womenViewController = [[WomenViewController alloc] init];
+                                                          [self.navigationController pushViewController:womenViewController animated:YES];
+                                                      }];
          }
      }];
 }
 
 
-- (void) signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
     if (error != nil) {
     }else {
-        WomenViewController *womenViewController = [[WomenViewController alloc] init];
-        [self.navigationController pushViewController:womenViewController animated:YES];
+        GIDAuthentication *authentication = user.authentication;
+        FIRAuthCredential *credential =
+        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                         accessToken:authentication.accessToken];
+        [[FIRAuth auth] signInAndRetrieveDataWithCredential:credential
+                                                 completion:^(FIRAuthDataResult * _Nullable authResult,
+                                                              NSError * _Nullable error) {
+                                                     if (error) {
+                                                         // ...
+                                                         return;
+                                                     }
+                                                     WomenViewController *womenViewController = [[WomenViewController alloc] init];
+                                                     [self.navigationController pushViewController:womenViewController animated:YES];
+                                                 }];
+        
+        
     }
 }
 
@@ -211,19 +253,19 @@
 }
 
 
-- (void) pressedMarketBarButtonItem:(UIBarButtonItem *)button{
+- (void)pressedMarketBarButtonItem:(UIBarButtonItem *)button{
     
 }
 
-- (void) pressedCommentBarButtonItem:(UIBarButtonItem *)button{
+- (void)pressedCommentBarButtonItem:(UIBarButtonItem *)button{
     
 }
 
-- (void) pressedMenuBarButtonItem:(UIBarButtonItem *)button{
+- (void)pressedMenuBarButtonItem:(UIBarButtonItem *)button{
     
 }
 
-- (void) pressCheckBox:(UIButton *)button{
+- (void)pressCheckBox:(UIButton *)button{
     if (isChecked == NO) {
         [checkBoxButton setBackgroundImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
         isChecked = YES;
@@ -233,9 +275,11 @@
     }
 }
 
-- (void) pressedSignInButton:(UIButton *)button{
+- (void)pressedSignInButton:(UIButton *)button{
     WomenViewController *womenViewController = [[WomenViewController alloc] init];
     [self.navigationController pushViewController:womenViewController animated:YES];
 }
+
+
 
 @end
