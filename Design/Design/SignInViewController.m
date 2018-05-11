@@ -122,12 +122,12 @@
     dontHaveAccountView.layer.borderWidth = 1;
     [self.view addSubview:dontHaveAccountView];
     
-    UILabel *dontHaveAccountLabel = [[UILabel alloc] initWithFrame:CGRectMake(dontHaveAccountView.bounds.size.width/10, 15, 100, 40)];
+    UILabel *dontHaveAccountLabel = [[UILabel alloc] initWithFrame:CGRectMake(dontHaveAccountView.bounds.size.width/12, 15, 100, 40)];
     [dontHaveAccountLabel setText:@"Don't have any account?"];
     [dontHaveAccountLabel sizeToFit];
     [dontHaveAccountView addSubview:dontHaveAccountLabel];
     
-    signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(dontHaveAccountView.bounds.size.width/10 + 180, 5, 100, 40)];
+    signUpButton = [[UIButton alloc] initWithFrame:CGRectMake(dontHaveAccountView.bounds.size.width/10 + 170, 5, 100, 40)];
     [signUpButton setTitle:@"Sign Up" forState:UIControlStateNormal];
     signUpButton.titleLabel.font = [UIFont fontWithName:@"Helvetica" size:18];
     [signUpButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
