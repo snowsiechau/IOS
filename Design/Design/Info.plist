@@ -24,13 +24,22 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.514651473993-n4bi4cfvvbo0ncoc5pjb1o27icoq2kbe</string>
-                 <string>fb217011692228721</string>
-                  <string>twitterkit-2Ff3APtSnsT5CkTbbaWm1T028</string>
+				<string>fb217011692228721</string>
+				<string>twitterkit-2Ff3APtSnsT5CkTbbaWm1T028</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>217011692228721</string>
+	<key>FacebookDisplayName</key>
+	<string>Design</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>twitter</string>
+		<string>twitterauth</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -42,8 +51,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -52,16 +59,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>twitter</string>
-        <string>twitterauth</string>
-    </array>
-    
-    <key>FacebookAppID</key>
-    <string>217011692228721</string>
-    <key>FacebookDisplayName</key>
-    <string>Design</string>
 </dict>
 </plist>

@@ -30,6 +30,7 @@
     
     
     [FIRApp configure];
+    
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     
     [[FBSDKApplicationDelegate sharedInstance] application:application

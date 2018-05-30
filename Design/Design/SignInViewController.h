@@ -15,9 +15,11 @@
 @import GoogleSignIn;
 @import FirebaseFacebookAuthUI;
 
-@interface SignInViewController : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>
+@interface SignInViewController : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *emailTextField, *passwordTextField;
 @property (nonatomic, strong) UILabel *emailLabel, *passwordLabel;
 @property (nonatomic, strong) UIButton *forgotPasswordButton, *signInButton, *signUpButton, *checkBoxButton;
+
+@property (nonatomic, strong) UITableView *tableView;
 @end
